@@ -9,8 +9,8 @@ class Formatter {
   static titleize(str){
     const notWanted=['the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by','from']
     const words= str.split(" ");
-    const cleanedWords = words.filter(word => !notWanted.includes(word))
-    const capital = cleanedWords.map(word =>Formatter.capitalize(word))
-    return [Formatter.capitalize(words[0]),...capital.slice(1)].join(" ");
+    const cleanedWords = words.filter(word => notWanted.includes(word) ? word : Formatter.capitalize(word) )
+    // const capital = cleanedWords.map(word => Formatter.capitalize(word))
+    return [Formatter.capitalize(words[0]),...cleanedWords.slice(1)].join(" ");
   }
 }
