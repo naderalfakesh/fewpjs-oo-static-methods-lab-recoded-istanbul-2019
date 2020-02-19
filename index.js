@@ -11,6 +11,6 @@ class Formatter {
     const words= str.split(" ");
     const cleanedWords = words.filter(word => !notWanted.includes(word))
     const capital = cleanedWords.map(word =>Formatter.capitalize(word))
-    return [Formatter.capitalize(words[0]),...capital].join(" ");
+    return [Formatter.capitalize(words[0]),...capital.shift()].join(" ");
   }
 }
