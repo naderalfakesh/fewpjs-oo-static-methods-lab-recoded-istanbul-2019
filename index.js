@@ -10,6 +10,7 @@ class Formatter {
     const notWanted=['the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by','from']
     const words= str.split(" ");
     const cleanedWords = words.filter(word => !notWanted.includes(word))
-    return cleanedWords.join(" ");
+    const capital = cleanedWords.map(word =>Formatter.capitalize(word))
+    return [Formatter.capitalize(words[0]),...capital].join(" ");
   }
 }
