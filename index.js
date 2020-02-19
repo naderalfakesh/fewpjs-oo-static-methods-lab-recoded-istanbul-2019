@@ -7,6 +7,9 @@ class Formatter {
     return str.replace(/[^-'\sA-Za-z0-9]+/g, '');
   }
   static titleize(str){
-    return str.replace(/[^-,'A-Za-z0-9]+/g, '');
+    const notWanted=['the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by','from']
+    const words= str.split(" ");
+    const cleanedWords = words.filter(word => !notWanted.includes(word))
+    return cleanedWords.join(" ");
   }
 }
